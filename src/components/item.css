@@ -1,0 +1,84 @@
+
+
+.todo{
+  margin-bottom: 1.5rem;
+  list-style: none;
+  
+}
+
+.check{
+position: absolute;
+opacity: 0;
+}
+
+.todo__label{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.7rem auto;
+  padding: 0.5rem;
+  cursor: pointer;
+  background: rgb(206, 238, 245);
+  border-radius: 5px;
+  position: relative;
+  padding-left: 40px;
+  white-space: pre-wrap;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--itemColor);
+  background-color: transparent;
+  
+  
+}
+
+.check:checked + .checkmark::after {
+  content: "\f560";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--itemColor);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.check + .checkmark::after { 
+  content: ""; 
+  opacity: 0;
+}
+
+.check:checked + .checkmark{
+  border: none;
+}
+
+.todo__item-title{
+  text-align: left;
+  width: 90%;
+  color: var(--mainColor);
+  font-size: clamp(0.8em, 1.5em, 1.2em);
+  word-wrap: break-word
+}
+
+.done{
+  text-decoration: line-through;
+  text-decoration-color: var(--accentColor);
+  transition: text-decoration 0.3s ease;
+  color: var(--accentColor);
+}
+
+.trush{
+  color: var(--itemColor);
+  font-size: 1.3rem;
+  z-index: 2;
+  padding-left: 5px;
+}
