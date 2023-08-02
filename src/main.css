@@ -1,6 +1,4 @@
-
-
-.container{
+.container {
   max-width: 700px;
   min-height: 92vh;
   margin: 30px auto;
@@ -8,25 +6,37 @@
   border: 1px solid var(--accentColor);
   background: transparent;
   text-align: center;
-  
 }
 
-@media (max-width: 768px){
-  .container{
-  margin: 30px;
+@media (max-width: 768px) {
+  .container {
+    margin: 30px;
+  }
+}
 
-
-}}
-
-.main__title{
-  font-family: 'Lobster', cursive;
+.main__title {
+  font-family: "Lobster", cursive;
   font-size: clamp(2rem, 5vw, 3.3rem);
   font-weight: 600;
   letter-spacing: 0.3rem;
   color: var(--mainColor);
+  animation-name: main-title-spring;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
 }
 
-.main__task{
+@keyframes main-title-spring {
+  0% {
+    transform: scale(15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.main__task {
   display: block;
   width: 90%;
   margin: 20px auto 8px;
@@ -40,7 +50,7 @@
   font-style: italic;
 }
 
-.main__label{
+.main__label {
   display: block;
   text-align: left;
   color: var(--accentColor);
