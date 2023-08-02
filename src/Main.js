@@ -3,13 +3,22 @@ import "./main.css";
 
 import {v4 as uuidv4} from "uuid";
 import List from "./components/List";
+import CurrentDate from "./components/CurrentDate";
 
 const Main = () => {
-  const [tasks, setTasks] = useState([
-    { id: 0, title: "Clean", status: false },
-  ]);
-
+  const [tasks, setTasks] = useState(()=>{
+    const storedTodos = localStorage.getItem('tasks');
+    if(!storedTodos){
+      return []
+    } else {
+      return JSON.parse(storedTodos);
+    }
+  });
   const [tasksTitle, setTasksTitle] = useState("");
+
+  useEffect(()=>{
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  },[tasks])
 
   const addTask = (e) =>{
     if(e.key === 'Enter' && e.target.value !== ''){
@@ -25,6 +34,7 @@ const Main = () => {
   return (
     <div className="container">
       <h1 className="main__title">Note your tasks</h1>
+      <CurrentDate />
       <div>
         <input
           type="text"
