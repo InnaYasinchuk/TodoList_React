@@ -26,6 +26,12 @@ opacity: 0;
   white-space: pre-wrap;
 }
 
+@media (max-width: 768px) {
+  .todo__label {
+    width: 97%;
+  }
+}
+
 .checkmark {
   position: absolute;
   top: 50%;
